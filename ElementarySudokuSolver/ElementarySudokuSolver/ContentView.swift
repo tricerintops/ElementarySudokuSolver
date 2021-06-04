@@ -9,6 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     
+    var body: some View {
+        Text("Hello, world!")
+            .padding()
+        NonetView()
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+
+struct NonetView: View {
     let data = (1...9).map { "Item \($0)" }
     
     let columns = [
@@ -18,8 +32,6 @@ struct ContentView: View {
     ]
     
     var body: some View {
-        Text("Hello, world!")
-            .padding()
         LazyVGrid(
             columns: columns,
             alignment: .center,
@@ -36,11 +48,5 @@ struct ContentView: View {
             }
         }
         .border(Color.red, width: 3)
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
