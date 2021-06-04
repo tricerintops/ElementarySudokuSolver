@@ -44,9 +44,10 @@ struct NonetView: View {
     let data = (1...9).map { "\($0)" }
     
     let columns = [
-        GridItem(.flexible(), spacing: 0),
-        GridItem(.flexible(), spacing: 0),
-        GridItem(.flexible(), spacing: 0)
+        // 3 identical GridItems because I want 3 identical columns
+        GridItem(.adaptive(minimum: 35, maximum: 100), spacing: 0),
+        GridItem(.adaptive(minimum: 35, maximum: 100), spacing: 0),
+        GridItem(.adaptive(minimum: 35, maximum: 100), spacing: 0)
     ]
     
     var body: some View {
@@ -56,12 +57,13 @@ struct NonetView: View {
             spacing: 0
         ) {
             ForEach(data, id: \.self) { item in
-                HStack {
+                HStack(spacing: 0) {
                     Spacer()
                     Text(item)
+                        //.font(.system(size: 4))
+                        .border(Color.green, width: 1)
                     Spacer()
                 }
-                .padding()
                 .border(Color.blue, width: 1)
             }
         }
