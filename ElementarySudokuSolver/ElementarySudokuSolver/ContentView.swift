@@ -9,10 +9,28 @@ import SwiftUI
 
 struct ContentView: View {
     
+    let data = (1...9).map { "Item \($0)" }
+    
+    let columns = [
+        GridItem(.flexible(), spacing: 0),
+        GridItem(.flexible(), spacing: 0),
+        GridItem(.flexible(), spacing: 0)
+    ]
+    
     var body: some View {
         Text("Hello, world!")
             .padding()
-        NonetView()
+        LazyVGrid(
+            columns: columns,
+            alignment: .center,
+            spacing: 0
+        ) {
+            ForEach(data, id: \.self) { item in
+                NonetView()
+                .border(Color.yellow, width: 1)
+            }
+        }
+        .border(Color.orange, width: 3)
     }
 }
 
@@ -23,7 +41,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct NonetView: View {
-    let data = (1...9).map { "Item \($0)" }
+    let data = (1...9).map { "\($0)" }
     
     let columns = [
         GridItem(.flexible(), spacing: 0),
