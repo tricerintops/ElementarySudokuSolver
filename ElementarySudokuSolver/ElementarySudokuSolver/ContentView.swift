@@ -15,21 +15,31 @@ struct ContentView: View {
             
             let shorterLength = (geometry.size.width < geometry.size.height) ? geometry.size.width : geometry.size.height
             
-            VStack (spacing: 0) {
-                TripletView2(containerLimit: shorterLength)
-                    .frame(height: shorterLength * 0.33)
-                    .border(Color.red, width: 4)
-                TripletView2(containerLimit: shorterLength)
-                    .frame(height: shorterLength * 0.34)
-                    .border(Color.red, width: 4)
-                TripletView2(containerLimit: shorterLength)
-                    .frame(height: shorterLength * 0.33)
-                    .border(Color.red, width: 4)
-            }
-            
-            VStack {
-                Text("width: \(geometry.size.width)")
-                Text("height: \(geometry.size.height)")
+            HStack {
+                VStack(spacing: 0)  {
+                    NonetView3(containerLimit: shorterLength * 0.33)
+                        .frame(height: shorterLength * 0.33)
+                    NonetView3(containerLimit: shorterLength * 0.33)
+                        .frame(height: shorterLength * 0.33)
+                    NonetView3(containerLimit: shorterLength * 0.33)
+                        .frame(height: shorterLength * 0.33)
+                }
+                VStack(spacing: 0)  {
+                    NonetView3(containerLimit: shorterLength * 0.33)
+                        .frame(height: shorterLength * 0.33)
+                    NonetView3(containerLimit: shorterLength * 0.33)
+                        .frame(height: shorterLength * 0.33)
+                    NonetView3(containerLimit: shorterLength * 0.33)
+                        .frame(height: shorterLength * 0.33)
+                }
+                VStack(spacing: 0)  {
+                    NonetView3(containerLimit: shorterLength * 0.33)
+                        .frame(height: shorterLength * 0.33)
+                    NonetView3(containerLimit: shorterLength * 0.33)
+                        .frame(height: shorterLength * 0.33)
+                    NonetView3(containerLimit: shorterLength * 0.33)
+                        .frame(height: shorterLength * 0.33)
+                }
             }
         }
         
@@ -42,9 +52,7 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-
-    
-struct TripletView2: View {
+struct NonetView3: View {
     
     let containerLimit: CGFloat
     
@@ -52,6 +60,26 @@ struct TripletView2: View {
         GeometryReader { geometry in
             
             //let shorterLength = (geometry.size.width < geometry.size.height) ? geometry.size.width : geometry.size.height
+            
+            VStack(spacing: 0) {
+                TripletView2(containerLimit: containerLimit)
+                    .frame(height: containerLimit * 0.33)
+                TripletView2(containerLimit: containerLimit)
+                    .frame(height: containerLimit * 0.34)
+                TripletView2(containerLimit: containerLimit)
+                    .frame(height: containerLimit * 0.33)
+            }
+            .border(Color.red, width: 4)
+        }
+    }
+}
+
+    
+struct TripletView2: View {
+    
+    let containerLimit: CGFloat
+    
+    var body: some View {
             
             HStack(spacing: 0) {
                 Text("1")
@@ -73,12 +101,6 @@ struct TripletView2: View {
                     .background(Color.green)
                     .border(Color.black, width: 1)
             }
-            
-            VStack {
-                Text("width: \(geometry.size.width)")
-                Text("height: \(geometry.size.height)")
-            }
-        }
     }
 }
 
