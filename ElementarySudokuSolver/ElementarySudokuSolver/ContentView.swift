@@ -15,16 +15,16 @@ struct ContentView: View {
             
             let shorterLength = (geometry.size.width < geometry.size.height) ? geometry.size.width : geometry.size.height
             
-            VStack {
+            VStack (spacing: 0) {
                 TripletView2(containerLimit: shorterLength)
                     .frame(height: shorterLength * 0.33)
-                    .border(Color.red, width: 1)
+                    .border(Color.red, width: 4)
                 TripletView2(containerLimit: shorterLength)
                     .frame(height: shorterLength * 0.34)
-                    .border(Color.red, width: 1)
+                    .border(Color.red, width: 4)
                 TripletView2(containerLimit: shorterLength)
                     .frame(height: shorterLength * 0.33)
-                    .border(Color.red, width: 1)
+                    .border(Color.red, width: 4)
             }
             
             VStack {
