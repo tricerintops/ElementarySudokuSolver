@@ -11,36 +11,37 @@ struct ContentView: View {
     
     var body: some View {
         Text("Keep trying!!")
+        
         GeometryReader { geometry in
             
-            let shorterLength = (geometry.size.width < geometry.size.height) ? geometry.size.width : geometry.size.height
+            NonetView()
             
-            HStack {
-                VStack(spacing: 0)  {
-                    NonetView3(containerLimit: shorterLength * 0.33)
-                        .frame(height: shorterLength * 0.33)
-                    NonetView3(containerLimit: shorterLength * 0.33)
-                        .frame(height: shorterLength * 0.33)
-                    NonetView3(containerLimit: shorterLength * 0.33)
-                        .frame(height: shorterLength * 0.33)
-                }
-                VStack(spacing: 0)  {
-                    NonetView3(containerLimit: shorterLength * 0.33)
-                        .frame(height: shorterLength * 0.33)
-                    NonetView3(containerLimit: shorterLength * 0.33)
-                        .frame(height: shorterLength * 0.33)
-                    NonetView3(containerLimit: shorterLength * 0.33)
-                        .frame(height: shorterLength * 0.33)
-                }
-                VStack(spacing: 0)  {
-                    NonetView3(containerLimit: shorterLength * 0.33)
-                        .frame(height: shorterLength * 0.33)
-                    NonetView3(containerLimit: shorterLength * 0.33)
-                        .frame(height: shorterLength * 0.33)
-                    NonetView3(containerLimit: shorterLength * 0.33)
-                        .frame(height: shorterLength * 0.33)
-                }
-            }
+//            HStack {
+//                VStack(spacing: 0)  {
+//                    NonetView3(containerLimit: shorterLength * 0.33)
+//                        .frame(height: shorterLength * 0.33)
+//                    NonetView3(containerLimit: shorterLength * 0.33)
+//                        .frame(height: shorterLength * 0.33)
+//                    NonetView3(containerLimit: shorterLength * 0.33)
+//                        .frame(height: shorterLength * 0.33)
+//                }
+//                VStack(spacing: 0)  {
+//                    NonetView3(containerLimit: shorterLength * 0.33)
+//                        .frame(height: shorterLength * 0.33)
+//                    NonetView3(containerLimit: shorterLength * 0.33)
+//                        .frame(height: shorterLength * 0.33)
+//                    NonetView3(containerLimit: shorterLength * 0.33)
+//                        .frame(height: shorterLength * 0.33)
+//                }
+//                VStack(spacing: 0)  {
+//                    NonetView3(containerLimit: shorterLength * 0.33)
+//                        .frame(height: shorterLength * 0.33)
+//                    NonetView3(containerLimit: shorterLength * 0.33)
+//                        .frame(height: shorterLength * 0.33)
+//                    NonetView3(containerLimit: shorterLength * 0.33)
+//                        .frame(height: shorterLength * 0.33)
+//                }
+//            }
         }
         
     }
@@ -52,136 +53,56 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct NonetView3: View {
-    
-    let containerLimit: CGFloat
+/*
+ A NonetView is a square made up of 9 squares in a 3 x 3 formation. It fills it's containing view, but does not overflow it ever.
+ */
+struct NonetView: View {
     
     var body: some View {
         GeometryReader { geometry in
             
-            //let shorterLength = (geometry.size.width < geometry.size.height) ? geometry.size.width : geometry.size.height
-            
             VStack(spacing: 0) {
-                TripletView2(containerLimit: containerLimit)
-                    .frame(height: containerLimit * 0.33)
-                TripletView2(containerLimit: containerLimit)
-                    .frame(height: containerLimit * 0.34)
-                TripletView2(containerLimit: containerLimit)
-                    .frame(height: containerLimit * 0.33)
+                TripletView(containerSize: geometry.size)
+                TripletView(containerSize: geometry.size)
+                TripletView(containerSize: geometry.size)
             }
             .border(Color.red, width: 4)
         }
     }
 }
 
-    
-struct TripletView2: View {
-    
-    let containerLimit: CGFloat
-    
-    var body: some View {
-            
-            HStack(spacing: 0) {
-                Text("1")
-                    .font(.largeTitle)
-                    .foregroundColor(.black)
-                    .frame(width: containerLimit * 0.33, height: containerLimit * 0.33)
-                    .background(Color.yellow)
-                    .border(Color.black, width: 1)
-                Text("2")
-                    .font(.largeTitle)
-                    .foregroundColor(.black)
-                    .frame(width: containerLimit * 0.34, height: containerLimit * 0.33)
-                    .background(Color.orange)
-                    .border(Color.black, width: 1)
-                Text("3")
-                    .font(.largeTitle)
-                    .foregroundColor(.black)
-                    .frame(width:  containerLimit * 0.33, height: containerLimit * 0.33)
-                    .background(Color.green)
-                    .border(Color.black, width: 1)
-            }
-    }
-}
-
-struct NonetView2: View {
-    let columnData = (1...3).map { "c\($0)" }
-    let rowData = (1...3).map { "r\($0)" }
-    
-    var body: some View {
-        HStack(spacing: 0) {
-            ForEach(columnData, id: \.self) { item in
-                VStack(spacing: 0) {
-                    ForEach(rowData, id: \.self) { item in
-                        Text("2")
-                            //.padding()
-                        Divider()
-                    }
-                }
-                Divider()
-            }
-        }
-        .border(Color.yellow, width: 2)
-    }
-}
-
-struct NonetView: View {
-    let data = (1...3).map { "Row \($0)" }
-    
-    let rows = [
-        // 3 identical GridItems because I want 3 identical rows
-        // because these are rows, the minimum is the minimum height
-        GridItem(.flexible(minimum: 100), spacing: 0),
-        GridItem(.flexible(minimum: 35), spacing: 0),
-        GridItem(.flexible(minimum: 100), spacing: 0)
-    ]
-    
-    var body: some View {
-        LazyHGrid(
-            rows: rows,
-            alignment: .center,
-            spacing: 0
-        ) {
-            ForEach(data, id: \.self) { item in
-                TripletView()
-                    .padding(0)
-            }
-        }
-        .border(Color.yellow, width: 3)
-    }
-}
-
+/*
+ A TripletView is a 1 x 3 grid. It is a single row of 3 squares. It will expand to fill it's containing view, but will always
+ be comprised of 3 squares, not rectangles.
+ */
 struct TripletView: View {
-    let data = (1...3).map { "\($0)" }
     
-    let columns = [
-        // 3 identical GridItems because I want 3 identical columns
-        // because these are columns, the minimum is the minimum width
-        GridItem(.flexible(minimum: 35), spacing: 0),
-        GridItem(.flexible(minimum: 35), spacing: 0),
-        GridItem(.flexible(minimum: 35), spacing: 0)
-    ]
+    let containerSize: CGSize
     
     var body: some View {
-        LazyVGrid(
-            columns: columns,
-            alignment: .center,
-            spacing: 0
-        ) {
-            ForEach(data, id: \.self) { item in
-                HStack {
-                    Spacer()
-                    VStack(spacing: 0) {
-                        Spacer()
-                        Text(item)
-                            .border(Color.green, width: 1)
-                        Spacer()
-                    }
-                    Spacer()
-                }
-                .border(Color.blue, width: 1)
-            }
+        
+        let containerLimit = containerSize.width < containerSize.height ? containerSize.width : containerSize.height
+        let sqSide: CGFloat = containerLimit / 3
+            
+        HStack(spacing: 0) {
+            Text("1")
+                .font(.largeTitle)
+                .foregroundColor(.black)
+                .frame(width: sqSide, height: sqSide)
+                .background(Color.yellow)
+                .border(Color.black, width: 1)
+            Text("2")
+                .font(.largeTitle)
+                .foregroundColor(.black)
+                .frame(width: sqSide, height: sqSide)
+                .background(Color.orange)
+                .border(Color.black, width: 1)
+            Text("3")
+                .font(.largeTitle)
+                .foregroundColor(.black)
+                .frame(width: sqSide, height: sqSide)
+                .background(Color.green)
+                .border(Color.black, width: 1)
         }
-        .border(Color.red, width: 3)
     }
 }
