@@ -43,13 +43,23 @@ struct ContentView: View {
 //                }
 //            }
         }
-        
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        VStack {
+            Text("This should show a nonet in a containing view that is wider than it is tall. So the size of the nonent will be limited by the height dimension of the containing view. The nonet should fill the height but not the width (since the nonet should always be a square.")
+            NonetView()
+                .frame(width: 300, height: 100)
+                .background(Color.blue)
+        }
+        VStack {
+            Text("This should show a nonet in a containing view that is taller than it is wide. So the size of the nonent will be limited by the width dimension of the containing view. The nonet should fill the width but not the height (since the nonet should always be a square.")
+            NonetView()
+                .frame(width: 100, height: 300)
+                .background(Color.blue)
+        }
     }
 }
 
