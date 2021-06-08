@@ -13,8 +13,23 @@ struct ContentView: View {
         Text("Keep trying!!")
         
         GeometryReader { geometry in
-            
-            NonetView()
+            HStack(spacing: 0) {
+                VStack(spacing: 0) {
+                    NonetView()
+                    NonetView()
+                    NonetView()
+                }.border(Color.blue, width: 4)
+                VStack(spacing: 0) {
+                    NonetView()
+                    NonetView()
+                    NonetView()
+                }
+                VStack(spacing: 0) {
+                    NonetView().border(Color.blue, width: 2)
+                    NonetView()
+                    NonetView()
+                }
+            }
             
 //            HStack {
 //                VStack(spacing: 0)  {
@@ -59,6 +74,15 @@ struct ContentView_Previews: PreviewProvider {
             NonetView()
                 .frame(width: 100, height: 300)
                 .background(Color.blue)
+        }
+        VStack {
+            Text("This is not what I want")
+            VStack(spacing: 0) {
+                NonetView()
+                    .border(Color.blue, width: 2)
+                NonetView()
+                NonetView()
+            }.frame(width: 100)
         }
     }
 }
