@@ -13,21 +13,25 @@ struct ContentView: View {
         Text("Keep trying!!")
         
         GeometryReader { geometry in
+            
+            let shorterSide = geometry.size.width < geometry.size.height ? geometry.size.width : geometry.size.height
+            let nonetSideLength = shorterSide / 3
+            
             HStack(spacing: 0) {
                 VStack(spacing: 0) {
-                    NonetView()
-                    NonetView()
-                    NonetView()
+                    NonetView().frame(width: nonetSideLength, height: nonetSideLength)
+                    NonetView().frame(width: nonetSideLength, height: nonetSideLength)
+                    NonetView().frame(width: nonetSideLength, height: nonetSideLength)
                 }.border(Color.blue, width: 4)
                 VStack(spacing: 0) {
-                    NonetView()
-                    NonetView()
-                    NonetView()
+                    NonetView().frame(width: nonetSideLength, height: nonetSideLength)
+                    NonetView().frame(width: nonetSideLength, height: nonetSideLength)
+                    NonetView().frame(width: nonetSideLength, height: nonetSideLength)
                 }
                 VStack(spacing: 0) {
-                    NonetView().border(Color.blue, width: 2)
-                    NonetView()
-                    NonetView()
+                    NonetView().frame(width: nonetSideLength, height: nonetSideLength).border(Color.blue, width: 2)
+                    NonetView().frame(width: nonetSideLength, height: nonetSideLength)
+                    NonetView().frame(width: nonetSideLength, height: nonetSideLength)
                 }
             }
             
