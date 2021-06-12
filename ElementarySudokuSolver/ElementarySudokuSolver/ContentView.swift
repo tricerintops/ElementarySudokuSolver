@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        // Text("Keep trying!!")
         
         GeometryReader { geometry in
             
@@ -35,32 +34,6 @@ struct ContentView: View {
                 }
             }.border(Color.black, width: 2)
             
-//            HStack {
-//                VStack(spacing: 0)  {
-//                    NonetView3(containerLimit: shorterLength * 0.33)
-//                        .frame(height: shorterLength * 0.33)
-//                    NonetView3(containerLimit: shorterLength * 0.33)
-//                        .frame(height: shorterLength * 0.33)
-//                    NonetView3(containerLimit: shorterLength * 0.33)
-//                        .frame(height: shorterLength * 0.33)
-//                }
-//                VStack(spacing: 0)  {
-//                    NonetView3(containerLimit: shorterLength * 0.33)
-//                        .frame(height: shorterLength * 0.33)
-//                    NonetView3(containerLimit: shorterLength * 0.33)
-//                        .frame(height: shorterLength * 0.33)
-//                    NonetView3(containerLimit: shorterLength * 0.33)
-//                        .frame(height: shorterLength * 0.33)
-//                }
-//                VStack(spacing: 0)  {
-//                    NonetView3(containerLimit: shorterLength * 0.33)
-//                        .frame(height: shorterLength * 0.33)
-//                    NonetView3(containerLimit: shorterLength * 0.33)
-//                        .frame(height: shorterLength * 0.33)
-//                    NonetView3(containerLimit: shorterLength * 0.33)
-//                        .frame(height: shorterLength * 0.33)
-//                }
-//            }
         }
     }
 }
@@ -127,19 +100,16 @@ struct TripletView: View {
                 .font(.largeTitle)
                 .foregroundColor(.black)
                 .frame(width: sqSide, height: sqSide)
-                //.background(Color.yellow)
                 .border(Color.black, width: 1)
             Text(" ")
                 .font(.largeTitle)
                 .foregroundColor(.black)
                 .frame(width: sqSide, height: sqSide)
-                //.background(Color.orange)
                 .border(Color.black, width: 1)
             Text(" ")
                 .font(.largeTitle)
                 .foregroundColor(.black)
                 .frame(width: sqSide, height: sqSide)
-                //.background(Color.green)
                 .border(Color.black, width: 1)
         }
     }
