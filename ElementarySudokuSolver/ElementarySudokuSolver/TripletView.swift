@@ -8,7 +8,7 @@
 import SwiftUI
 
 /*
- A TripletView is a 1 x 3 grid. It is a single row of 3 squares. It will expand to fill it's containing view, but will always
+ A TripletView is a 1 x 3 grid. It is a single row of 3 squares. It will expand to fill its containing view, but will always
  be comprised of 3 squares, not rectangles.
  */
 struct TripletView: View {
@@ -17,24 +17,24 @@ struct TripletView: View {
     
     var body: some View {
         
-        let containerLimit = containerSize.width < containerSize.height ? containerSize.width : containerSize.height
-        let sqSide: CGFloat = containerLimit / 3
+        let shorterSide = containerSize.width < containerSize.height ? containerSize.width : containerSize.height
+        let tripletSideLength: CGFloat = shorterSide / 3
             
         HStack(spacing: 0) {
             Text(" ")
                 .font(.largeTitle)
                 .foregroundColor(.black)
-                .frame(width: sqSide, height: sqSide)
+                .frame(width: tripletSideLength, height: tripletSideLength)
                 .border(Color.black, width: 1)
             Text(" ")
                 .font(.largeTitle)
                 .foregroundColor(.black)
-                .frame(width: sqSide, height: sqSide)
+                .frame(width: tripletSideLength, height: tripletSideLength)
                 .border(Color.black, width: 1)
             Text(" ")
                 .font(.largeTitle)
                 .foregroundColor(.black)
-                .frame(width: sqSide, height: sqSide)
+                .frame(width: tripletSideLength, height: tripletSideLength)
                 .border(Color.black, width: 1)
         }
     }
