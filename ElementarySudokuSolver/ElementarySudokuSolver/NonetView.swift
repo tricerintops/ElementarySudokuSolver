@@ -8,7 +8,8 @@
 import SwiftUI
 
 /*
- A NonetView is a square made up of 9 squares in a 3 x 3 formation. It fills it's containing view, but does not overflow it ever.
+ A NonetView is a square made up of 9 squares in a 3 x 3 formation. It fills it's containing view using an "aspect fit"
+ strategy.
  */
 struct NonetView: View {
     
