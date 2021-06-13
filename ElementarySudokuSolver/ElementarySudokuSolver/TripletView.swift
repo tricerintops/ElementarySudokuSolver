@@ -13,6 +13,7 @@ import SwiftUI
  */
 struct TripletView: View {
     
+    // Set this value to the size of the parent view.
     let containerSize: CGSize
     
     var body: some View {
