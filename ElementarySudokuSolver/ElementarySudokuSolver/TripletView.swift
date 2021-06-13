@@ -17,24 +17,24 @@ struct TripletView: View {
     
     var body: some View {
         
-        let containerLimit = containerSize.width < containerSize.height ? containerSize.width : containerSize.height
-        let sqSide: CGFloat = containerLimit / 3
+        let shorterSide = containerSize.width < containerSize.height ? containerSize.width : containerSize.height
+        let tripletSideLength: CGFloat = shorterSide / 3
             
         HStack(spacing: 0) {
             Text(" ")
                 .font(.largeTitle)
                 .foregroundColor(.black)
-                .frame(width: sqSide, height: sqSide)
+                .frame(width: tripletSideLength, height: tripletSideLength)
                 .border(Color.black, width: 1)
             Text(" ")
                 .font(.largeTitle)
                 .foregroundColor(.black)
-                .frame(width: sqSide, height: sqSide)
+                .frame(width: tripletSideLength, height: tripletSideLength)
                 .border(Color.black, width: 1)
             Text(" ")
                 .font(.largeTitle)
                 .foregroundColor(.black)
-                .frame(width: sqSide, height: sqSide)
+                .frame(width: tripletSideLength, height: tripletSideLength)
                 .border(Color.black, width: 1)
         }
     }
