@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041528BC267519F20048DE48 /* NonetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041528BB267519F20048DE48 /* NonetView.swift */; };
+		041528C426751A5C0048DE48 /* TripletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041528C326751A5C0048DE48 /* TripletView.swift */; };
 		0444E93C266943C400A080E5 /* ElementarySudokuSolverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E93B266943C400A080E5 /* ElementarySudokuSolverApp.swift */; };
 		0444E93E266943C400A080E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E93D266943C400A080E5 /* ContentView.swift */; };
 		0444E940266943C500A080E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0444E93F266943C500A080E5 /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041528BB267519F20048DE48 /* NonetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonetView.swift; sourceTree = "<group>"; };
+		041528C326751A5C0048DE48 /* TripletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripletView.swift; sourceTree = "<group>"; };
 		0444E938266943C400A080E5 /* ElementarySudokuSolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElementarySudokuSolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0444E93B266943C400A080E5 /* ElementarySudokuSolverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementarySudokuSolverApp.swift; sourceTree = "<group>"; };
 		0444E93D266943C400A080E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 			children = (
 				0444E93B266943C400A080E5 /* ElementarySudokuSolverApp.swift */,
 				0444E93D266943C400A080E5 /* ContentView.swift */,
+				041528BB267519F20048DE48 /* NonetView.swift */,
+				041528C326751A5C0048DE48 /* TripletView.swift */,
 				0444E93F266943C500A080E5 /* Assets.xcassets */,
 				0444E944266943C500A080E5 /* Info.plist */,
 				0444E941266943C500A080E5 /* Preview Content */,
@@ -260,7 +266,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0444E93E266943C400A080E5 /* ContentView.swift in Sources */,
+				041528BC267519F20048DE48 /* NonetView.swift in Sources */,
 				0444E93C266943C400A080E5 /* ElementarySudokuSolverApp.swift in Sources */,
+				041528C426751A5C0048DE48 /* TripletView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
