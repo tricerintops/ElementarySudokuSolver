@@ -8,7 +8,7 @@
 import SwiftUI
 
 /*
- A TripletView is a 1 x 3 grid. It is a single row of 3 squares. It will expand to fill its containing view using an "aspect fit"
+ A TripletView is a 1 x 3 grid. It is a single row of 3 squares. It will expand to fill it's containing view using an "aspect fit"
  strategy. This means it will always be comprised of 3 squares, never rectangles.
  */
 struct TripletView: View {
